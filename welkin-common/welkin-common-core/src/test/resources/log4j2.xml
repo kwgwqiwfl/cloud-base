@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration  status="OFF" packages="org.apache.logging.log4j.core">
+    <Properties>
+        <Property name="LOG_PATTERN">
+			<![CDATA[[%d{MM/dd HH:mm:ss.SSS}{GMT+8}] %X{pid} %5p [%t] - %c{2}(%L): %m%n %throwable{1000}]]></Property>
+    </Properties>
+  
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<SensitivePatternLayout pattern="${LOG_PATTERN}">
+				 <RegexReplaces name="RegexReplaces">
+					<replace regex="(&lt;IdNo>|&lt;CertId>|&lt;CertID>)(\d{3})\d{11,14}(\w{1}&lt;/)" replacement="$1$2**************$3" />
+					<replace regex="(&lt;UserId>|&lt;FullName>|&lt;UserName>|&lt;AcName>|&lt;CifName>)([\u4E00-\u9FA5]{1})[\u4E00-\u9FA5]{1,}(&lt;/)" replacement="$1$2**$3" />
+					<replace regex="(&lt;MobilePhone>|&lt;BankBindPhone>|&lt;MobileTelephone>|&lt;FamilyTel>)(\d{3})\d{4}(\d{4}&lt;/)" replacement="$1$2****$3" />
+					<replace regex="(&lt;AcNo>|&lt;MyBankAccount>|&lt;LoanAccountNo>|&lt;BackAccountno>|&lt;EAcNo>)(\d{3})\d{10,13}(\d{3}&lt;/)" replacement="$1$2*************$3" />
+					<replace regex="(Phone|mobilePhone|phone|familyTel|holderMobile|mobileTelephone|bankBindPhone|holdermobile)(\\*&quot;:\\*&quot;)(\d{3})\d{4}(\d{4}\\*&quot;)" replacement="$1$2$3****$4" />
+					<replace regex="(cardId|id_card_no|idCardNo|holderIdNo|holder_id_no|idNo|certId|idCard|holderidno|certID)(\\*&quot;:\\*&quot;)(\d{3})\d{11,14}(\w{1}\\*&quot;)" replacement="$1$2$3**************$4" />
+					<replace regex="(name_pingyin|namePingyin|accountName|account_name|fullName|userId|realName|realname)(\\*&quot;:\\*&quot;)([\u4E00-\u9FA5]{1})([\u4E00-\u9FA5]{1,})(\\*&quot;)" replacement="$1$2$3**$5" />
+					<replace regex="(card_no|cardNo|acNo)(\\*&quot;:\\*&quot;)(\d{3})\d{10,13}(\d{3}\\*&quot;)" replacement="$1$2$3*************$4" />
+					<replace
+							regex="(pwd|Pwd|PWD|pass|Pass|PASS|password|Password|PASSWORD)(\\*\\?&quot;:\\*\\?&quot;)(['`~!@#$%^&amp;*\(\)\w]{1,})(\\?&quot;)"
+							replacement="$1$2******$4"/>
+					<replace regex="(email|Email|EMAIL)(\\*&quot;:\\*&quot;)(\w{3})(\w{1,})(@\w{1,}.\w{1,}&quot;)" replacement="$1$2$3******$5" />
+				</RegexReplaces>
+			</SensitivePatternLayout> 
+			<!-- <SensitiveJsonLayout compact="true" eventEol="true"
+				properties="true" stacktraceAsString="true" objectMessageAsJsonObject="true">
+				<KeyValuePair key="nanoTimestamp" value="$${UtcNanos:}" />
+				 <RegexReplaces name="RegexReplaces">
+					<replace regex="(&lt;IdNo>|&lt;CertId>|&lt;CertID>)(\d{3})\d{11,14}(\w{1}&lt;/)" replacement="$1$2**************$3" />
+					<replace regex="(&lt;UserId>|&lt;FullName>|&lt;UserName>|&lt;AcName>|&lt;CifName>)([\u4E00-\u9FA5]{1})[\u4E00-\u9FA5]{1,}(&lt;/)" replacement="$1$2**$3" />
+					<replace regex="(&lt;MobilePhone>|&lt;BankBindPhone>|&lt;MobileTelephone>|&lt;FamilyTel>)(\d{3})\d{4}(\d{4}&lt;/)" replacement="$1$2****$3" />
+					<replace regex="(&lt;AcNo>|&lt;MyBankAccount>|&lt;LoanAccountNo>|&lt;BackAccountno>|&lt;EAcNo>)(\d{3})\d{10,13}(\d{3}&lt;/)" replacement="$1$2*************$3" />
+					<replace regex="(Phone|mobilePhone|phone|familyTel|holderMobile|mobileTelephone|bankBindPhone|holdermobile)(\\*&quot;:\\*&quot;)(\d{3})\d{4}(\d{4}\\*&quot;)" replacement="$1$2$3****$4" />
+					<replace regex="(cardId|id_card_no|idCardNo|holderIdNo|holder_id_no|idNo|certId|idCard|holderidno|certID)(\\*&quot;:\\*&quot;)(\d{3})\d{11,14}(\w{1}\\*&quot;)" replacement="$1$2$3**************$4" />
+					<replace regex="(name_pingyin|namePingyin|accountName|account_name|fullName|userId|realName|realname)(\\*&quot;:\\*&quot;)([\u4E00-\u9FA5]{1})([\u4E00-\u9FA5]{1,})(\\*&quot;)" replacement="$1$2$3**$5" />
+					<replace regex="(card_no|cardNo|acNo)(\\*&quot;:\\*&quot;)(\d{3})\d{10,13}(\d{3}\\*&quot;)" replacement="$1$2$3*************$4" />
+					<replace regex="(pwd|Pwd|PWD|pass|Pass|PASS|password|Password|PASSWORD)(\\*&quot;:\\*&quot;)(['`~!@#$%^&amp;*\(\)\w]{1,})(&quot;)" replacement="$1$2******$4" />
+					<replace regex="(email|Email|EMAIL)(\\*&quot;:\\*&quot;)(\w{3})(\w{1,})(@\w{1,}.\w{1,}&quot;)" replacement="$1$2$3******$5" />
+				</RegexReplaces>
+				</SensitiveJsonLayout> -->
+		</Console>
+	</appenders>
+	<loggers>
+		<root level="DEBUG">
+			<appender-ref ref="Console" />
+		</root>
+	</loggers>
+</Configuration>

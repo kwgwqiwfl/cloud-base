@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ring.welkin</groupId>
+        <artifactId>welkin-parent</artifactId>
+        <version>${revision}</version>
+    </parent>
+    <artifactId>welkin-starters</artifactId>
+    <packaging>pom</packaging>
+
+    <name>welkin-starters</name>
+    <url>http://maven.apche.org</url>
+    <modules>
+        <module>welkin-persistence-spring-boot-starter</module>
+        <module>welkin-webflux-spring-boot-starter</module>
+        <module>welkin-webmvc-spring-boot-starter</module>
+        <module>welkin-cloud-spring-boot-starter</module>
+        <module>welkin-cache-spring-boot-starter</module>
+        <module>welkin-openfeign-spring-boot-starter</module>
+    </modules>
+</project>

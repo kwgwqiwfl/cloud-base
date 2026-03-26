@@ -1,0 +1,24 @@
+package com.ring.welkin.common.persistence.mybatis.type.varchar;
+
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
+
+/**
+ * Varchar VS Long Array TypeHandler
+ *
+ * @author cloud
+ * @date 2019-05-28 13:52
+ */
+public class VarcharVsArrayLongTypeHandler extends AbstractVarcharTypeHandler<Long[]> {
+
+    @Override
+    public String translate2Str(Long[] t) {
+        return StringUtils.join(t, DEFAULT_SEPARATOR);
+    }
+
+    @Override
+    public Long[] translate2Bean(String result) {
+        return Arrays.stream(result.split(DEFAULT_SEPARATOR)).map(Long::valueOf).toArray(Long[]::new);
+    }
+}

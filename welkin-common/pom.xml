@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.ring.welkin</groupId>
+		<artifactId>welkin-parent</artifactId>
+		<version>${revision}</version>
+	</parent>
+	<artifactId>welkin-common</artifactId>
+	<packaging>pom</packaging>
+	<name>welkin-common</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<modules>
+		<module>welkin-common-core</module>
+		<module>welkin-common-queryapi</module>
+		<module>welkin-common-validation</module>
+		<module>welkin-common-hibernate</module>
+		<module>welkin-common-jpa</module>
+		<module>welkin-common-mybatis-cache</module>
+		<module>welkin-common-persistence</module>
+		<module>welkin-common-datasource</module>
+		<module>welkin-common-swagger</module>
+		<module>welkin-common-config</module>
+		<module>welkin-common-feign</module>
+		<module>welkin-common-web</module>
+		<module>welkin-common-webflux</module>
+		<module>welkin-common-webmvc</module>
+		<module>welkin-common-sqlhelper</module>
+		<module>welkin-common-quartz</module>
+        <module>welkin-common-log4j2</module>
+  </modules>
+</project>
